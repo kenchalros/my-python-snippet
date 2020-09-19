@@ -1,0 +1,26 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+pytest = "*"
+pytest-cov = "*"
+flake8 = "*"
+autopep8 = "*"
+pysnit = {git = "https://github.com/kenchalros/PySniT.git"}
+fire = "*"
+typing-extensions = "*"
+
+[requires]
+python_version = "3.6"
+
+[scripts]
+"test" = "pytest -v"
+"test:cov" = "pytest -v --cov=."
+"test:out" = "pytest -v --capture=no" # passしたかどうかに関わらずprintを標準出力に出力する
+"lint" = "flake8 --exclude 'tests' --show-source ."
+"format" = "autopep8 -ivr . --exclude tests"
+"type" = "mypy ./src --config-file ./mypy.ini"

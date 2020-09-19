@@ -1,0 +1,8 @@
+[module]
+integer = "./src/integer.py"
+dijkstra = "./src/dijkstra.py"
+unionfind = "./src/unionfind.py"
+
+[print_format]
+prefix = "printf"
+body = ["print('$1'.format($2))"]

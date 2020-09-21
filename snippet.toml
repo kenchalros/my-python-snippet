@@ -5,32 +5,51 @@ unionfind = "./src/unionfind.py"
 
 [print_format]
 prefix = "printf"
-body = ["print('$1'.format($2))"]
+body = """
+print('$1'.format($2))
+$0"""
+
+[print_var]
+prefix = "printv"
+body = """
+print('$1: {}'.format($1))
+$0"""
 
 [for]
 prefix = "for"
-body = [
-    "for $1 in $2:",
-    "\t$3"
-    ]
+body = """
+for $1 in $2:
+    $0
+"""
 
 [for_enumerate]
 prefix = "fore"
-body = [
-    "for ${1:i}, $2 in enumerate($3):",
-    "\t$3",
-    ]
+body = """
+for ${1:i}, $2 in enumerate($3):
+    $0
+"""
 
 [for_range]
 prefix = "forr"
-body = [
-    "for ${1:i} in range($2):",
-    "\t$3",
-    ]
+body = """
+for ${1:i} in range($2):
+    $0
+"""
 
 [for_items]
 prefix = "fori"
-body = [
-    "for ${1:k}, ${2:v} in $3.items():",
-    "\t$4",
-    ]
+body = """
+for ${1:k}, ${2:v} in $3.items():
+    $0
+"""
+
+[if_main]
+prefix = "ifmain"
+body = """
+def main():
+    $0
+
+if __name__ == '__main__':
+    main()
+"""
+

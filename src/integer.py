@@ -17,7 +17,6 @@ def enumerate_divs(n):
 @snippet(prefix="gp",
          description="Return a list of prime numbers n or less.")
 def get_primes(n=10**3):
-    """Return a list of prime numbers n or less"""
     is_prime = [True]*(n+1)
     is_prime[0] = is_prime[1] = False
     for i in range(2, int(n**0.5)+1):
